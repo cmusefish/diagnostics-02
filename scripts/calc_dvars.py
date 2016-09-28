@@ -50,13 +50,29 @@ def calc_image_dvars(img):
         1D array with root mean square difference values between each volume
         and the following volume
     """
+    data = img.get_data()
+    volumes = data.shape[-1]
+    print(volumes)
+    #nvoxels = data.shape[0] * img.shape[1] * img.shape[2]
+
+    dvars = []
+
+    """for volume in range(volumes-1):
+        difference = data[:,:,:,volume] - data[:,:,:,volume + 1]
+        square_diff = difference ** 2
+        sum_diff = sum(data.ravel())
+        divide = sum_diff / nvoxels
+        square_root = np.sqrt(divide)
+        dvars.append(square_root)
+        return dvars
+
     # For each voxel, calculate the differences between each volume and the one
     # following;
     #
     # Square the differences;
     # Sum over voxels for each volume, and divide by the number of voxels;
     # Return the square root of these values.
-    raise RuntimeError('No code yet')
+    # raise RuntimeError('No code yet')
 
 
 def main():
@@ -67,4 +83,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main()"""
